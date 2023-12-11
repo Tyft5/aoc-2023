@@ -37,14 +37,12 @@ valid_next = {'down': 'S|LJ', 'up': 'S|F7', 'left': 'S-FL', 'right': 'S-J7'}
 valid_this = {'down': 'S|F7', 'up': 'S|LJ', 'left': 'S-J7', 'right': 'S-FL'}
 valids = [valid_this, valid_next]
 pos = [srow, scol]
-dists = [[0 for _ in range(len(ln))] for ln in pipes]
 
 # first step. does python have do while?
 at, lastdir = take_step(pipes, pos, dirs, valids, (0, 0))
 step = 1
 
 while at != pos:
-    dists[at[0]][at[1]] = step
     at, lastdir= take_step(pipes, at, dirs, valids, lastdir)
     step += 1
 
